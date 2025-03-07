@@ -133,3 +133,18 @@ export function createElement<
     }
     return element;
 }
+
+// Функция форматирования цены в карточке товара
+export function priceFormatter(value: number | null):string {
+    if (!value) return 'Бесценно';
+    if (value >= 10000) {
+        return `${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} синапсов`;
+    } else {
+        return `${value.toString()} синапсов`;
+    }
+}
+
+// Функция форматирования ссылки на картинку товара из CDN
+export function  imageLinkFormatter(CDN: string, value: string):string {
+    return CDN + value;
+}
