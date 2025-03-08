@@ -44,22 +44,22 @@ export class ProductCard extends Component<IProductItem> {
         this.setText(this.productCardCategory, value);
         switch(value) {
             case 'софт-скил':
-                this.productCardCategory.classList.add('card__category_soft');
+                this.productCardCategory.className = 'card__category card__category_soft';
                 break;
             case 'другое':
-                this.productCardCategory.classList.add('card__category_other');
+                this.productCardCategory.className = 'card__category card__category_other';
                 break;
             case 'дополнительное':
-                this.productCardCategory.classList.add('card__category_additional');
+                this.productCardCategory.className = 'card__category card__category_additional';
                 break;
             case 'кнопка':
-                this.productCardCategory.classList.add('card__category_button');
+                this.productCardCategory.className = 'card__category card__category_button';
                 break;
             case 'хард-скил':
-                this.productCardCategory.classList.add('card__category_hard');
+                this.productCardCategory.className = 'card__category card__category_hard';
                 break;
             default:
-                this.productCardCategory.classList.add('card__category_other');
+                this.productCardCategory.className = 'card__category card__category_other';
         }
     }
 
@@ -72,7 +72,6 @@ export class ProductCard extends Component<IProductItem> {
 
     render(data: Partial<IProductItem>): HTMLElement {
         super.render(data);
-        //this.container.addEventListener('click', ()=> this.events.emit('product-card:opened', {productData: data}));
         this.addClickHandler(data);
         return this.container;
     }

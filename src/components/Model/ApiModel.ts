@@ -13,12 +13,12 @@ export class ApiModel extends Api {
                 if (response && Array.isArray(response.items)) {
                     return response.items;
                 } else {
-                    return [];
+                    throw new Error('Ошибка формата ответа от сервера');
                 }
             })
             .catch((err) => {
                 console.log('Ошибка при получении списка товаров:', err);
-                return [];
+                throw new Error('Ошибка при получении списка товаров');
             });
     }
 
@@ -29,7 +29,7 @@ export class ApiModel extends Api {
             })
             .catch((err) => {
                 console.error('Ошибка при отправке заказа:', err);
-                throw {};
+                throw new Error('Не удалось отправить заказ');
             });
     }
 }
